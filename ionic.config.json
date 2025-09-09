@@ -1,0 +1,7 @@
+{
+  "name": "event-list-mobile-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
