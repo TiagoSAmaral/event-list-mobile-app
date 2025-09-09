@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
 
+import INetwork from '@network/network.interface';
+
+
+
 @Component({
   selector: 'app-explore-container',
   templateUrl: './explore-container.component.html',
@@ -7,4 +11,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ExploreContainerComponent {
   @Input() name?: string;
+
+  network?: INetwork;
 }
