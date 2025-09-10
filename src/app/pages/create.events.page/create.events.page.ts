@@ -6,6 +6,7 @@ import pageIdentifier from '@shared/components/tabs/tabs.identifier';
   selector: 'app-create.events.page',
   templateUrl: 'create.events.page.html',
   styleUrls: ['create.events.page.scss'],
+  standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent]
 })
 export class CreateEventsPage {

@@ -4,11 +4,11 @@ import { addIcons } from 'ionicons';
 import { listSharp, pencilSharp } from 'ionicons/icons';
 import pageIdentifier, { PageKey, PageConfig } from '@shared/components/tabs/tabs.identifier';
 
-
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
+  standalone: true,
   imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
 })
 export class TabsPage {

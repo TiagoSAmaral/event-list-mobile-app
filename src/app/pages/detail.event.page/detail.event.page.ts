@@ -6,6 +6,7 @@ import pageIdentifier from '@shared/components/tabs/tabs.identifier';
   selector: 'app-detail.event.page',
   templateUrl: 'detail.event.page.html',
   styleUrls: ['detail.event.page.scss'],
+    standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class DetailEventPage {
