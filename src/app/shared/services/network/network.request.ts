@@ -1,21 +1,13 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import INetworkRequest from '@shared/interfaces/network.request.interface';
-import { HttpRequestMethod } from '@shared/types/http.methods.type';
+import ApiBlock from './apiblock.config';
 
-import { RequestHeaders } from '@shared/types/http.headers.type';
-
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export default class NetworkRequest implements INetworkRequest  {
 
     constructor(private http: HttpClient) {}
-
-    // request = <T>(urlPath: string, method: HttpRequestMethod, payload?: any, headers?: RequestHeaders): Observable<T> | undefined => this.http.request<T>(method, urlPath, { headers: headers, body: payload });
-
-    request = <T>(urlPath: string, method: HttpRequestMethod, body?: any, headers?: RequestHeaders): Observable<T> => this.http.request<T>(method, urlPath, {  body, headers, responseType: 'json' }) as Observable<T>;
-
+    request = <T>({method, url, body, headers}: ApiBlock): Observable<T> => this.http.request<T>(method, url, {  body, headers, responseType: 'json' }) as Observable<T>;
 }
