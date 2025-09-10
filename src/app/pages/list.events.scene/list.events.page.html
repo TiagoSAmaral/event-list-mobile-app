@@ -7,6 +7,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  
+  <ion-refresher slot="fixed" (ionRefresh)="requestPageContent($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -14,7 +18,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <h2>
-    List Events
-  </h2>
+  <ion-list>
+    @for (item of content; track $index) {
+      <app-card-title-description-view [content]="item" (action)="openDescription($event)" ></app-card-title-description-view>
+    }
+  </ion-list>
+
 </ion-content>
