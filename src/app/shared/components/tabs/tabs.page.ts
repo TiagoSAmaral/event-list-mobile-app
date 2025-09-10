@@ -1,7 +1,9 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square } from 'ionicons/icons';
+import { listSharp, pencilSharp } from 'ionicons/icons';
+import pageIdentifier, { PageKey, PageConfig } from '@shared/components/tabs/tabs.identifier';
+
 
 @Component({
   selector: 'app-tabs',
@@ -12,7 +14,16 @@ import { triangle, ellipse, square } from 'ionicons/icons';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
+  childrenIdentifiers: PageConfig[] = [];
+
   constructor() {
-    addIcons({ triangle, ellipse, square });
+    addIcons({ listSharp, pencilSharp });
+    this.setupTabIdentifiers();
+  }
+
+  setupTabIdentifiers = () => {
+    pageIdentifier["listEventPage"].image = listSharp;
+    pageIdentifier["createEventPage"].image = pencilSharp;
+    this.childrenIdentifiers = [pageIdentifier["listEventPage"], pageIdentifier["createEventPage"]]
   }
 }
