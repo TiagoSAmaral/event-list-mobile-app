@@ -23,7 +23,7 @@
 
     "paths": {
       "@core/*": ["./src/app/core/*"],
-      "@scenes/*": ["./src/app/scenes/*"],
+      "@pages/*": ["src/app/pages/*"],
       "@shared/*": ["./src/app/shared/*"],
       "@components/*": ["./src/app/shared/components/*"],
       "@network/*": ["./src/app/shared/network/*"],
