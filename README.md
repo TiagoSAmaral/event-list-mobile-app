@@ -35,7 +35,6 @@ Este repositório contém o desafio técnico de desenvolvimento de um aplicativo
 - [ ] Testar fluxo completo (listar → detalhar → cadastrar).
 
 ## 🌟 Diferenciais (opcionais, mas recomendados)
-
 - [ ] Testes unitários (`Jasmine/Karma` para frontend).
 - [ ] Uso de interceptors no Ionic para tratar erros de API.
 - [ ] Publicar frontend no **TestFlight** (iOS) ou **APK Android**.
@@ -48,7 +47,6 @@ Este repositório contém o desafio técnico de desenvolvimento de um aplicativo
 ``
 
 ## 📝 Avaliação
-
 O que será analisado:
 - Organização do código e estrutura de pastas.
 - Uso de boas práticas (SOLID, Clean Code, modularização).
