@@ -25,18 +25,19 @@ Este repositório contém o desafio técnico de desenvolvimento de um aplicativo
 - Usar **RxJS/Observables** na integração com a API.
 
 ### ✅ Checklist de Metas
-- [ ] Criar projeto Ionic + Angular.
-- [ ] Configurar módulos e rotas.
-- [ ] Implementar tela **Lista de Eventos** (GET /api/eventos).
-- [ ] Implementar tela **Detalhes do Evento** (GET /api/eventos/{id}).
-- [ ] Implementar tela **Cadastro de Evento** (POST /api/eventos).
-- [ ] Aplicar validações no formulário.
-- [ ] Usar RxJS/Observables para consumo de API.
-- [ ] Testar fluxo completo (listar → detalhar → cadastrar).
+- [X] Criar projeto Ionic + Angular.
+- [x] Configurar módulos e rotas.
+- [X] Implementar tela **Lista de Eventos** (GET /api/eventos).
+- [x] Implementar tela **Detalhes do Evento** (GET /api/eventos/{id}).
+- [X] Implementar tela **Cadastro de Evento** (POST /api/eventos).
+- [X] Implementar tela **Delete de Evento** (DELETE /api/eventos). -> Adicional
+- [X] Aplicar validações no formulário.
+- [X] Usar RxJS/Observables para consumo de API.
+- [x] Testar fluxo completo (listar → detalhar → cadastrar → deletar).
 
 ## 🌟 Diferenciais (opcionais, mas recomendados)
-- [ ] Testes unitários (`Jasmine/Karma` para frontend).
-- [ ] Uso de interceptors no Ionic para tratar erros de API.
+- [x] Testes unitários (`Jasmine/Karma` para frontend).
+- [x] Uso de interceptors no Ionic para tratar erros de API.
 - [ ] Publicar frontend no **TestFlight** (iOS) ou **APK Android**.
 
 ## 🚀 Entrega
