@@ -19,9 +19,9 @@ const pageIdentifier: Record<PageKey, PageConfig> =  {
         route: "tab2"
       },
     eventDetailPage:  {
-        title: "Criar Evento",
+        title: "Evento",
         image: undefined,
-        route: undefined
+        route: 'detail'
     }
 }
 
