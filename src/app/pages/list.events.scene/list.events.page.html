@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+
   <ion-refresher slot="fixed" (ionRefresh)="requestPageContent($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -18,10 +18,29 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    @for (item of content; track $index) {
-      <app-card-title-description-view [content]="item" (action)="openDescription($event)" ></app-card-title-description-view>
-    }
-  </ion-list>
 
+  @if (obsContent$ | async; as response) {
+
+    @if (response.data!.length == 0) {
+      <!-- Não ha conteudo -->
+      <div class="center-content">
+        <h1>Não há eventos</h1>
+      </div>
+
+    } @else {
+      <!-- Exibe conteudo -->
+      <ion-list>
+        @for (item of response.data; track $index) {
+          <app-card-title-description-view [content]="{id: item.id, title: item.title, description: item.date | date:'dd/MM/yyyy'}" (action)="openDescription($event)" (delete)="deleteEvent($event)"></app-card-title-description-view>
+        }
+      </ion-list>
+    }
+
+} @else {
+  <!-- Loading -->
+  <div class="center-content ion-flex-column">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando eventos...</p>
+  </div>
+}
 </ion-content>
