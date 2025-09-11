@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import INetworkRequest from '@shared/interfaces/network.request.interface';
 import ApiBlock from './apiblock.config';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export default class NetworkRequest implements INetworkRequest  {
 
     constructor(private http: HttpClient) {}
