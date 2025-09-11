@@ -4,9 +4,9 @@ import { addIcons } from 'ionicons';
 import { trash } from 'ionicons/icons';
 
 export interface ICardTitleDescription {
-  identifier: string;
+  id: string;
   title: string;
-  description: string;
+  description: string | null;
 }
 
 @Component({
@@ -17,12 +17,17 @@ export interface ICardTitleDescription {
   imports: [IonIcon, IonItemOption, IonItemOptions, IonItemSliding, IonItem, IonLabel],
 
 })
-export class CardTitleDescriptionView {
+export class CardTitleDescriptionViewComponent {
 
-  @Output() action =  new EventEmitter<string | undefined>();
+  @Output() action = new EventEmitter<string | undefined>();
+  @Output() delete = new EventEmitter<string | undefined>();
   @Input() content?: ICardTitleDescription;
 
   constructor() {
     addIcons({ trash });
+  }
+
+  deleteInternal = () => {
+    this.delete.emit(this.content?.id)
   }
 }

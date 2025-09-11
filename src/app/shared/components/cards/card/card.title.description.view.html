@@ -1,5 +1,5 @@
 
- <ion-item-sliding (click)="action!.emit(content?.identifier)">
+ <ion-item-sliding #sliging (click)="$event.stopPropagation(); action.emit(content?.id)">
     <ion-item [button]="true" detail="true">
     <ion-label>
         <h2>{{content?.title}}</h2>
@@ -8,7 +8,7 @@
     </ion-item>
 
     <ion-item-options slot="end">
-        <ion-item-option color="danger" expandable="true">
+        <ion-item-option color="danger" expandable="true" (click)="$event.stopPropagation(); sliging.close(); deleteInternal()">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
     </ion-item-options>
