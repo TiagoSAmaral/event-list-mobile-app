@@ -1,8 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+
     <ion-title>
       {{title}}
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="resetForm()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +21,85 @@
     </ion-toolbar>
   </ion-header>
 
-  <h2> CRIAR EVENTO</h2>
+  <form [formGroup]="eventForm" (ngSubmit)="saveForm()">
+
+      <ion-item>
+        <div class="ion-flex-column">
+          <ion-input  label="Nome do evento" labelPlacement="floating" formControlName="title" placeholder=""></ion-input>
+          @if (eventForm.get('title')?.invalid && eventForm.get('title')?.touched) {
+            <ion-text color="danger">
+              @if(eventForm.get('title')?.errors?.['required']) {
+                <p>Nome é obrigatório</p>
+              }
+              @if(eventForm.get('title')?.errors?.['minlength']) {
+                <p>Nome deve ter no mínimo 3 caracteres</p>
+              }
+
+              @if(eventForm.get('title')?.errors?.['maxlength']) {
+                <p>Nome deve ter no máximo 30 caracteres</p>
+              }
+            </ion-text>
+          }
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="ion-flex-column">
+          <ion-input label="Descrição do evento" labelPlacement="floating" formControlName="description"  placeholder=""></ion-input>
+          @if (eventForm.get('description')?.invalid && eventForm.get('description')?.touched) {
+            <ion-text color="danger">
+              @if(eventForm.get('description')?.errors?.['required']) {
+                <p>Descrição é obrigatório</p>
+              }
+              @if(eventForm.get('description')?.errors?.['minlength']) {
+                <p>Descrição deve ter no mínimo 3 caracteres</p>
+              }
+              @if(eventForm.get('description')?.errors?.['maxlength']) {
+                <p>Descrição deve ter no máximo 30 caracteres</p>
+              }
+            </ion-text>
+          }
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="ion-flex-column">
+          <ion-input label="Data do evento" labelPlacement="floating" placeholder="" type="date" formControlName="date"></ion-input>
+          @if (eventForm.get('date')?.invalid && eventForm.get('date')?.touched) {
+            <ion-text color="danger">
+              @if(eventForm.get('date')?.errors?.['required']) {
+                <p>Data é obrigatório</p>
+              }
+              @if(eventForm.get('date')?.errors?.['notFutureDate']) {
+                <p>Data deve ser maior que a atual</p>
+              }
+            </ion-text>
+          }
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="ion-flex-column">
+        <ion-input label="Local do evento" labelPlacement="floating"  formControlName="locale" placeholder=""></ion-input>
+        @if (eventForm.get('locale')?.invalid && eventForm.get('locale')?.touched) {
+          <ion-text color="danger">
+            @if(eventForm.get('locale')?.errors?.['required']) {
+              <p>Local é obrigatório</p>
+            }
+            @if(eventForm.get('locale')?.errors?.['minlength']) {
+              <p>Local deve ter no mínimo 3 caracteres</p>
+            }
+
+            @if(eventForm.get('locale')?.errors?.['maxlength']) {
+              <p>Local deve ter no máximo 30 caracteres</p>
+            }
+          </ion-text>
+        }
+        </div>
+      </ion-item>
+
+    <div class="ion-padding">
+      <ion-button [disabled]="eventForm.invalid" (click)="saveForm()" expand="block">Salvar</ion-button>
+    </div>
+</form>
 </ion-content>
