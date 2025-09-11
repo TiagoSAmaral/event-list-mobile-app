@@ -2,6 +2,6 @@ export default interface EventModel {
     id: string;
     title: string;
     description: string;
-    date: Date | string;
+    date: string;
     locale: string;
 }
