@@ -10,7 +10,7 @@ import { addIcons } from 'ionicons';
 
 // const errorInterceptor: HttpInterceptorFn = (req, next) =>  {
 const errorInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
-    const DEFAULT_TIMEOUT = 5000; // 30 Segundos
+    const DEFAULT_TIMEOUT = 15000; // 15 Segundos
     const toastController = inject(ToastController);
     addIcons({close});
 
