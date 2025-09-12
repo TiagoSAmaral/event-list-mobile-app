@@ -30,7 +30,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/app'),
+      dir: require('path').join(__dirname, './doc'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -42,15 +42,15 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
+    singleRun: true,
+    restartOnFileChange: true,
     browsers: ['ChromiumHeadless'],
     customLaunchers: {
       ChromiumHeadless: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox', '--disable-setuid-sandbox']
       }
-    },
-    singleRun: false,
-    restartOnFileChange: true
+    }
   });
 };
