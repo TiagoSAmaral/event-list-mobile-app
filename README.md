@@ -10,6 +10,13 @@
 
 Este repositório contém o desafio técnico de desenvolvimento de um aplicativo híbrido em **Ionic + Angular**, consumindo uma **API em .NET 6/7 Web API**, com foco em código limpo, escalável, reutilizável e aplicando boas práticas de arquitetura.
 
+# Sobre o projeto
+
+- Ionic 8 (Angular 20)
+- Cobertura de código: 98.16% Statements | 107/109 85.18% | Branches 23/27 88.57% | Functions 31/35 98.05% | Lines 101/103 
+- Link para relatório completo: https://tiagosamaral.github.io/event-list-mobile-app/
+- Link para APK Android para teste: https://github.com/TiagoSAmaral/event-list-mobile-app/blob/main/event-list-app-debug.apk
+
 ---
 
 ## 🔹 Frontend (Ionic + Angular)
