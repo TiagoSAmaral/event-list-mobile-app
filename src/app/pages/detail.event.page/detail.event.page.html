@@ -30,33 +30,33 @@
         <ion-item>
            <ion-label>
             <p>Título</p>
-            <h2>{{ response.data[0].title }}</h2>
+            <h2>{{ response.data.title }}</h2>
           </ion-label>
         </ion-item>
 
         <ion-item>
              <ion-label>
               <p>Description</p>
-              <h2>{{ response.data[0].description }}</h2>
+              <h2>{{ response.data.description }}</h2>
             </ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label>
               <p>Descrição</p>
-              <h2>{{ response.data[0].date | date:'dd/MM/yyyy' }}</h2>
+              <h2>{{ response.data.date | date:'dd/MM/yyyy' }}</h2>
             </ion-label>
         </ion-item>
 
         <ion-item>
             <ion-label>
               <p>Local</p>
-              <h2>{{ response.data[0].locale }}</h2>
+              <h2>{{ response.data.locale }}</h2>
             </ion-label>
         </ion-item>
 
         <div class="ion-padding">
-            <ion-button strong="true" color="danger" expand="block" (click)="deleteEvent(response.data[0].id)">Apagar</ion-button>
+            <ion-button strong="true" color="danger" expand="block" (click)="deleteEvent(response.data.id)">Apagar</ion-button>
         </div>
 
       </ion-list>

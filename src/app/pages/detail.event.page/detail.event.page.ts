@@ -22,7 +22,7 @@ export class DetailEventPage {
 
   title = pageIdentifier["eventDetailPage"].title;
   currentEventId?: string | null;
-  obsContent$?: Observable<IResponseDefault<EventModel[] | undefined>>;
+  obsContent$?: Observable<IResponseDefault<EventModel | undefined>>;
   private networkRequest = inject(NETWORK_REQUEST);
   private actRouter = inject(ActivatedRoute);
   private toastController = inject(ToastController);
@@ -41,7 +41,10 @@ export class DetailEventPage {
     if (id == null || id == undefined)
       return;
 
-    this.obsContent$ = this.networkRequest.request<IResponseDefault<EventModel[] | undefined>>(ApiRequiriments.detailEvent(id));
+    this.obsContent$ = this.networkRequest.request<IResponseDefault<EventModel | undefined>>(ApiRequiriments.detailEvent(id));
+    this.networkRequest.request<IResponseDefault<EventModel | undefined>>(ApiRequiriments.detailEvent(id)).subscribe(item => {
+      console.log(item);
+    });
   }
 
   deleteEvent = (id: string | undefined | null) => {
