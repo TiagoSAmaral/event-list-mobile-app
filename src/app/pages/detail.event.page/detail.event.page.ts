@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonSpinner, IonItem, IonBackButton, IonButtons, IonLabel, IonButton } from '@ionic/angular/standalone';
-import EventModel from '@shared/components/models/event.model';
+import EventModel from '@shared/interfaces/event.model';
 import pageIdentifier from '@shared/components/tabs/tabs.identifier';
 import { NETWORK_REQUEST } from '@shared/interfaces/network.request.interface';
 import IResponseDefault from '@shared/interfaces/response.default';
@@ -45,12 +45,12 @@ export class DetailEventPage {
   }
 
   deleteEvent = (id: string | undefined | null) => {
-  
-      if (id == undefined && id == null && (id ?? '') == '') 
+
+      if (id == undefined && id == null && (id ?? '') == '')
         return;
-    
+
       this.networkRequest.request<IResponseDefault<undefined>>(ApiRequiriments.deleteEvent(id!)).subscribe(async response => {
-  
+
         const toast = await this.toastController.create({
           message: response.message,
           duration: 5000,
@@ -58,10 +58,10 @@ export class DetailEventPage {
           color: response.status == 200 ? 'primary': 'warning',
           buttons: [ { text: 'Fechar', role: 'cancel', handler: () => {} } ]
         });
-  
+
         toast.present();
         this.navigation.back();
       });
-      
+
     }
 }

@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonItemSliding, IonItemOptions, IonItemOption, IonIcon } from '@ionic/angular/standalone';
+import { IonItem, IonLabel, IonItemSliding, IonItemOptions, IonItemOption, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { trash } from 'ionicons/icons';
+import { DatePipe } from '@angular/common';
 
 export interface ICardTitleDescription {
   id: string;
   title: string;
-  description: string | null;
+  date: string | null;
 }
 
 @Component({
@@ -14,7 +15,7 @@ export interface ICardTitleDescription {
   templateUrl: 'card.title.description.view.html',
   styleUrls: ['card.title.description.view.scss'],
   standalone: true,
-  imports: [IonIcon, IonItemOption, IonItemOptions, IonItemSliding, IonItem, IonLabel],
+  imports: [IonIcon, IonItemOption, IonItemOptions, IonItemSliding, IonItem, IonLabel, DatePipe],
 
 })
 export class CardTitleDescriptionViewComponent {

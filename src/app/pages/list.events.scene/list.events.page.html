@@ -31,7 +31,7 @@
       <!-- Exibe conteudo -->
       <ion-list>
         @for (item of response.data; track $index) {
-          <app-card-title-description-view [content]="{id: item.id, title: item.title, description: item.date | date:'dd/MM/yyyy'}" (action)="openDescription($event)" (delete)="deleteEvent($event)"></app-card-title-description-view>
+          <app-card-title-description-view [content]="item" (action)="openDescription($event)" (delete)="deleteEvent($event)"></app-card-title-description-view>
         }
       </ion-list>
     }

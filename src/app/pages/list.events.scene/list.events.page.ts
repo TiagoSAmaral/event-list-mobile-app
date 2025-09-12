@@ -4,27 +4,26 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonRefresher, Ref
 import pageIdentifier from '@shared/components/tabs/tabs.identifier';
 import { CardTitleDescriptionViewComponent } from '@shared/components/cards/card/card.title.description.view';
 import { NETWORK_REQUEST } from '@shared/interfaces/network.request.interface';
-import EventModel from '@shared/components/models/event.model';
 import ApiRequiriments from '@shared/services/network/api.requiriments';
 import IResponseDefault from '@shared/interfaces/response.default';
 import { Observable } from 'rxjs';
 import { ToastController } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { DetailEventPage } from '@pages/detail.event.page/detail.event.page';
-import { DatePipe } from '@angular/common';
+import EventPartialModel from "@shared/interfaces/event.partial.model";
 
 @Component({
   selector: 'app-list-events',
   templateUrl: 'list.events.page.html',
   styleUrls: ['list.events.page.scss'],
   standalone: true,
-  imports: [IonSpinner, IonRefresherContent, IonRefresher, IonList, IonHeader, IonToolbar, IonTitle, IonContent, CardTitleDescriptionViewComponent, AsyncPipe, DatePipe],
+  imports: [IonSpinner, IonRefresherContent, IonRefresher, IonList, IonHeader, IonToolbar, IonTitle, IonContent, CardTitleDescriptionViewComponent, AsyncPipe],
 })
 export class ListEventsScenePage {
 
   title = pageIdentifier["listEventPage"].title;
-  obsContent$?: Observable<IResponseDefault<EventModel[] | null | undefined >>;
- 
+  obsContent$?: Observable<IResponseDefault<EventPartialModel[] | null | undefined >>;
+
   obsDelete$?: Observable<IResponseDefault<undefined>>;
   component = DetailEventPage;
   private toastController = inject(ToastController);
@@ -43,9 +42,9 @@ export class ListEventsScenePage {
 
   deleteEvent = (id: string | undefined) => {
 
-    if (id == undefined) 
+    if (id == undefined)
       return;
-  
+
     this.networkRequest.request<IResponseDefault<undefined>>(ApiRequiriments.deleteEvent(id)).subscribe(async response => {
 
       const toast = await this.toastController.create({
@@ -60,11 +59,11 @@ export class ListEventsScenePage {
 
       this.requestPageContent();
     });
-    
+
   }
 
   requestPageContent = (event: RefresherCustomEvent | undefined = undefined) => {
-    this.obsContent$ = this.networkRequest.request<IResponseDefault<EventModel[] | undefined>>(ApiRequiriments.listEvent());
+    this.obsContent$ = this.networkRequest.request<IResponseDefault<EventPartialModel[] | undefined>>(ApiRequiriments.listEvent());
     event?.target.complete();
   }
 }
